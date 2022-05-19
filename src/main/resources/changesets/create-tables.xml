@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="remek" id="1">
+        <createTable tableName="doctors">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="med_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pet_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hourly_rate" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nip" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="currently_employed" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="doctors"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="remek" id="2">
+        <createTable tableName="patients">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="pet_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pet_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="patients"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="remek" id="3">
+        <createTable tableName="visits">
+            <column name="id" type="BINARY(16)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="doctor_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="id" referencedTableName="doctor"/>
+            </column>
+            <column name="patient_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="id" referencedTableName="patient"/>
+            </column>
+            <column name="date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="confirmed" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="visits"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="remek" id="4">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id_user" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="users"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="remek" id="5">
+        <createTable tableName="roles">
+            <column autoIncrement="true" name="id_role" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="roles"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="remek" id="6">
+        <createTable tableName="users_roles">
+            <column name="user_id" type="BIGINT">
+                <constraints foreignKeyName="id_user" referencedTableName="users" referencedColumnNames="id_user"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints foreignKeyName="id_role" referencedTableName="roles" referencedColumnNames="id_role"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="users_roles"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="remek" id="7">
+        <createTable tableName="reminder_emails">
+            <column autoIncrement="true" name="id_email" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email_address" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="users"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="remek" id="8">
+        <createTable tableName="shedlock">
+            <column name="name" type="VARCHAR(64)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="lock_until" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+            <column name="locked_at" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+            <column name="locked_by" type="VARCHAR(255)">
+            </column>
+        </createTable>
+                <rollback>
+                    <dropTable tableName="shedlock"/>
+                </rollback>
+    </changeSet>
+
+</databaseChangeLog>

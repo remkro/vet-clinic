@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="remek" id="1">
+        <insert tableName="roles">
+            <column name="id_role" valueNumeric="1"/>
+            <column name="name" value="ADMIN"/>
+        </insert>
+
+        <insert tableName="roles">
+            <column name="id_role" valueNumeric="2"/>
+            <column name="name" value="USER"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="remek" id="2">
+        <insert tableName="users">
+            <column name="id_user" valueNumeric="1"/>
+            <column name="email" value="krolak.remek@gmail.com"/>
+            <column name="password" value="$2a$12$/TpT3aGxDLsxaeZZB1nlsOipcQkF3oLyBo8m2CZ9qfv2/0loKoMQ6"/>
+            <column name="username" value="remix"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
