@@ -17,7 +17,7 @@ This is the visit booking system for a veterinary clinic.
 <li>Java 14</li>
 <li>Spring Framework (Spring Boot, Spring Data JPA, Spring Validation, Spring Security)</li>
 <li>Hibernate</li>
-<li>SQL (production) / H2 (development)</h2>
+<li>MySQL (production) / H2 (development)</h2>
 <li>JWT</li>
 <li>Java Mail</li>
 <li>Liquibase</li>
