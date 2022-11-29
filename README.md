@@ -1,4 +1,7 @@
 # vet-clinic
+
+This is the visit booking system for a veterinary clinic.
+
 <h2>Functionalities:</h2>
 <ul>
 <li>CRUD for Doctor</li>
@@ -22,3 +25,8 @@
 <li>ShedLock</li>
 <li>Lombok</li>
 </ul>
+
+<h2>Screenshots</h2>
+Example of an email that patient recives when a visit is booked.
+
+<img src="https://user-images.githubusercontent.com/105795682/204522203-99331887-3f4a-4017-b219-0470b831b430.png">
