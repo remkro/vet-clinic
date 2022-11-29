@@ -3,6 +3,8 @@
 <ul>
 <li>CRUD for Doctor</li>
 <li>CRUD for Patient</li>
+<li>Patient booking a visit at doctor</li>
+<li>Sending visit booked confirmation email<li>
 </ul>
 
 <h2>Technologies and tools:</h2>
