@@ -4,7 +4,9 @@
 <li>CRUD for Doctor</li>
 <li>CRUD for Patient</li>
 <li>Patient booking a visit at doctor</li>
-<li>Sending visit booked confirmation email<li>
+<li>Patient confirming a visit at doctor</li>
+<li>Sending visit booked confirmation email</li>
+<li>Sending visit reminder email a day before visit</li>
 </ul>
 
 <h2>Technologies and tools:</h2>
