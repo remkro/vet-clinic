@@ -30,3 +30,6 @@ This is the visit booking system for a veterinary clinic.
 Example of an email that patient recives when a visit is booked.
 
 <img src="https://user-images.githubusercontent.com/105795682/204522203-99331887-3f4a-4017-b219-0470b831b430.png">
+
+<h2>Note</h2>
+Unfortunately, there is only one commit as at the time of writing the application I wasn't familiar with Git yet. Please check my newer applications that have commits history. Thank you for understanding. 
